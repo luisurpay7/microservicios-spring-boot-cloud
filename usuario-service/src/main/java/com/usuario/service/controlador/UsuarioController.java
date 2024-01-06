@@ -1,6 +1,7 @@
 package com.usuario.service.controlador;
 
 import java.util.List;
+import java.util.Map;
 
 import com.usuario.service.modelos.Carro;
 import com.usuario.service.modelos.Moto;
@@ -69,4 +70,23 @@ public class UsuarioController {
         List<Moto> motos = usuarioService.getMotos(id);
         return ResponseEntity.ok(motos);
     }
+
+    @PostMapping("/carro/{usuarioId}")
+    public ResponseEntity<Carro> guardarCarro(@PathVariable("usuarioId") int usuarioId, @RequestBody Carro carro) {
+        Carro nuevoCarro = usuarioService.saveCarro(usuarioId, carro);
+        return ResponseEntity.ok(nuevoCarro);
+    }
+
+    @PostMapping("/moto/{usuarioId}")
+    public ResponseEntity<Moto> guardarMoto(@PathVariable("usuarioId") int usuarioId, @RequestBody Moto moto) {
+        Moto nuevaMoto = usuarioService.saveMoto(usuarioId, moto);
+        return ResponseEntity.ok(nuevaMoto);
+    }
+
+    @GetMapping("/todos/{usuarioId}")
+    public ResponseEntity<Map<String, Object>> listarTodosLosVehiculos(@PathVariable("usuarioId") int usuarioId) {
+        Map<String, Object> resultado = usuarioService.getUsuarioAndVehiculos(usuarioId);
+        return ResponseEntity.ok(resultado);
+    }
+
 }

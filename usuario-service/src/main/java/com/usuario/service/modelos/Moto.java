@@ -4,7 +4,7 @@ public class Moto {
 
     private String marca;
     private String modelo;
-    private int usuarioId;
+    private int usuarioId;  // Recien se agrega usuarioId con set y get - FeignClient
 
     public String getMarca() {
         return marca;
