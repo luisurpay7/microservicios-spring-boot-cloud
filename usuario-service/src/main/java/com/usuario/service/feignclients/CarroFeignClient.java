@@ -11,7 +11,7 @@ import com.usuario.service.modelos.Carro;
 
 import java.util.List;
 
-@FeignClient(name = "carro-service", path = "/carro", url = "http://localhost:8082")
+@FeignClient(name = "carro-service", path = "/carro")
 // @RequestMapping("/carro")
 public interface CarroFeignClient {
 
